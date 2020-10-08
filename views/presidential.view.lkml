@@ -128,6 +128,12 @@ view: presidential {
     value_format_name: decimal_0
   }
 
+  measure: main_party_votes {
+    type: sum
+    sql: case when presidential.party not IN ('democrat', 'republican') then 0 else ${candidatevotes} end ;;
+    value_format_name: decimal_0
+  }
+
   measure: winner_votes {
     type: number
     sql: case when ${total_republician_vote} > ${total_democrat_vote} then ${total_republician_vote} else ${total_democrat_vote} end ;;
