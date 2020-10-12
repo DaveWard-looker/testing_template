@@ -13,3 +13,5 @@ persist_with: elections_default_datagroup
 explore: presidential {}
 
 explore: senate {}
+
+explore: house {}
