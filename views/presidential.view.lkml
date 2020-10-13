@@ -34,6 +34,15 @@ view: presidential {
     type: string
     sql: ${TABLE}.state ;;
     map_layer_name: us_states
+  #   action: {
+  #     label: "Send Webhook"
+  #     url: "https://hooks.zapier.com/hooks/catch/8713957/ogqipmn/"
+  #     icon_url: "https://www.google.com/s2/favicons?domain=zapier.com"
+  #     param: {
+  #       name: "Name String"
+  #       value: "The Name of the State is {{ value }} and it has voted {{ total_candidate_votes._rendered_value }}"
+  #     }
+  #   }
   }
 
   dimension: state_cen {
