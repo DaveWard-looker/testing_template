@@ -4,7 +4,7 @@ connection: "bigquery_personal_instance"
 include: "/views/**/*.view"
 
 datagroup: elections_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+   sql_trigger: SELECT count(*) FROM presidential;;
   max_cache_age: "1 hour"
 }
 
@@ -15,3 +15,5 @@ explore: presidential {}
 explore: senate {}
 
 explore: house {}
+
+explore: fact_candidate {}
