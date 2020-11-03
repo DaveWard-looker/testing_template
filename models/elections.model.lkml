@@ -17,3 +17,7 @@ explore: senate {}
 explore: house {}
 
 explore: fact_candidate {}
+
+explore: ge_2020 {
+  from: ge_2020_ie_count_details
+}

@@ -2,6 +2,12 @@ view: ge_2020_ie_candidate_details {
   sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Candidate_Details`
     ;;
 
+    dimension: pk_dim {
+      primary_key: yes
+      type: string
+      sql: ${candidate_id}||${count_number}||${constituency_number} ;;
+    }
+
   dimension: candidate_id {
     type: number
     sql: ${TABLE}.Candidate_Id ;;
