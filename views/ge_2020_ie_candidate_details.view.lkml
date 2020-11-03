@@ -63,13 +63,20 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: surname {
+    hidden: yes
     type: string
     sql: ${TABLE}.Surname ;;
   }
 
   dimension: votes {
+    hidden: yes
     type: number
     sql: ${TABLE}.Votes ;;
+  }
+
+  measure: total_votes {
+    type: sum
+    sql: ${votes} ;;
   }
 
   measure: count {
