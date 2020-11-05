@@ -7,7 +7,10 @@ view: ge_2020_ie_count_details {
     type: string
     sql: ${TABLE}.Candidate_First_Name ;;
   }
-
+measure: test {
+  type: count_distinct
+  sql: ${candidate_id} ;;
+}
   dimension: candidate_id {
     hidden: yes
     type: number
