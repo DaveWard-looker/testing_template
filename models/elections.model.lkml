@@ -25,6 +25,6 @@ map_layer: dail_constituencies {
   file: "/maps/dail_constituencies.json"
   format: topojson
   label: "a list of constituencies"
-  property_key: "ENGLISH_NA"
-  property_label_key: "ENGLISH_NA"
+  property_key: "FID"
+  property_label_key: "BDY_ID"
 }
