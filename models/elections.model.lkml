@@ -10,6 +10,8 @@ datagroup: elections_default_datagroup {
 
 persist_with: elections_default_datagroup
 
+explore: house {}
+
 explore: fact_candidate {}
 
 explore: ge_2020 {
