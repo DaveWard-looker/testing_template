@@ -22,12 +22,15 @@ explore: ge_2020 {
   from: ge_2020_ie_count_details
 }
 
+explore: ge_2020_ie_candidate_details {}
+
+explore: ge_2020_ie_constituency_details {}
+
 map_layer: dail_constituencies {
   feature_key: "ENGLISH_NA"
   file: "/maps/dail_constituencies.json"
   format: topojson
   label: "a list of constituencies"
-  projection: airy
   property_key: "ENGLISH_NA"
   property_label_key: "ENGLISH_NA"
 }
