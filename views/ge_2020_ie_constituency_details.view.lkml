@@ -73,12 +73,13 @@ view: ge_2020_ie_constituency_details {
     sql: ${TABLE}.Spoiled ;;
   }
 
-  dimension: total_electorate {
+  dimension: electorate {
+    hidden: yes
     type: number
     sql: ${TABLE}.Total_Electorate ;;
   }
 
-  dimension: total_poll {
+  dimension: poll {
     type: number
     sql: ${TABLE}.Total_Poll ;;
   }
@@ -91,5 +92,20 @@ view: ge_2020_ie_constituency_details {
   measure: count {
     type: count
     drill_fields: [constituency_name]
+  }
+
+  measure: total_electorate {
+    type: sum
+    sql: ${electorate} ;;
+  }
+
+  measure: total_poll {
+    type: sum
+    sql: ${poll} ;;
+  }
+
+  measure: total_valid_poll {
+    type: sum
+    sql: ${valid_poll} ;;
   }
 }
