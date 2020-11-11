@@ -16,6 +16,7 @@ view: ge_2020_ie_candidate_details {
   dimension: constituency {
     type: string
     sql: ${TABLE}.Constituency ;;
+    map_layer_name: dail
   }
 
   dimension: constituency_ainm {

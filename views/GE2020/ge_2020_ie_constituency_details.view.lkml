@@ -10,7 +10,7 @@ view: ge_2020_ie_constituency_details {
   dimension: constituency_name {
     type: string
     sql: ${TABLE}.Constituency_Name ;;
-    map_layer_name: dail_constituencies
+    map_layer_name: dail
   }
 
   dimension: constituency_number {
