@@ -8,6 +8,6 @@ map_layer: dail {
   file: "/maps/dail_constituencies.json"
   format: topojson
 }
-
+explore: ge_2020_ie_candidate_details {}
 
 explore: ge_2020_ie_constituency_details {}
