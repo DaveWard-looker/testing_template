@@ -108,4 +108,9 @@ view: ge_2020_ie_constituency_details {
     type: sum
     sql: ${valid_poll} ;;
   }
+
+  measure: total_count {
+    type: sum
+    sql: ${count_number} ;;
+  }
 }
