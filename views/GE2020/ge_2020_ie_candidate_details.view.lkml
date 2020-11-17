@@ -1,7 +1,6 @@
 view: ge_2020_ie_candidate_details {
-  sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Candidate_Details`
-    ;;
-
+  sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Candidate_Details`;;
+view_label: "Candidate"
     dimension: pk_dim {
       primary_key: yes
       type: string
@@ -9,22 +8,26 @@ view: ge_2020_ie_candidate_details {
     }
 
   dimension: candidate_id {
+    hidden: yes
     type: number
     sql: ${TABLE}.Candidate_Id ;;
   }
 
   dimension: constituency {
+    hidden: yes
     type: string
     sql: ${TABLE}.Constituency ;;
     map_layer_name: dail
   }
 
   dimension: constituency_ainm {
+    hidden: yes
     type: string
     sql: ${TABLE}.Constituency_Ainm ;;
   }
 
   dimension: constituency_number {
+    hidden: yes
     type: number
     sql: ${TABLE}.Constituency_Number ;;
   }
@@ -35,6 +38,7 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: firstname {
+    hidden: yes
     type: string
     sql: ${TABLE}.Firstname ;;
   }
@@ -50,11 +54,13 @@ view: ge_2020_ie_candidate_details {
   }
 
   dimension: party_id {
+    label: "Party Name"
     type: string
     sql: ${TABLE}.Party_Id ;;
   }
 
   dimension: required_to_reach_quota {
+    hidden: yes
     type: number
     sql: ${TABLE}.Required_To_Reach_Quota ;;
   }
@@ -81,13 +87,35 @@ view: ge_2020_ie_candidate_details {
     sql: ${TABLE}.Votes ;;
   }
 
+  dimension: candidate {
+    type: string
+    sql: concat(${firstname},' ',${surname}) ;;
+  }
+
   measure: total_votes {
     type: sum
     sql: ${votes} ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [firstname, surname]
+  measure: total_required_to_reach_quota {
+    type: sum
+    sql: ${required_to_reach_quota} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_required_to_save_deposit {
+    type: sum
+    sql: ${required_to_save_deposit} ;;
+  }
+
+  measure: candidate_saved_deposit {
+    type: yesno
+    sql: ${total_votes} > ${total_required_to_save_deposit} ;;
+  }
+
+  measure: total_first_preference_votes {
+    type: sum
+    sql: ${votes} ;;
+    filters: [count_number: "1"]
   }
 }

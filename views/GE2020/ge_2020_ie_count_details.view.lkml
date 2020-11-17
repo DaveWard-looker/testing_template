@@ -1,13 +1,14 @@
 view: ge_2020_ie_count_details {
   sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details`
     ;;
+view_label: "Count"
 
   dimension: candidate_first_name {
     hidden: yes
     type: string
     sql: ${TABLE}.Candidate_First_Name ;;
   }
-measure: test {
+measure: count_of_candidates {
   type: count_distinct
   sql: ${candidate_id} ;;
 }
@@ -29,6 +30,7 @@ measure: test {
   }
 
   dimension: constituency_name {
+    hidden: yes
     type: string
     sql: ${TABLE}.Constituency_Name ;;
   }
@@ -62,13 +64,27 @@ measure: test {
   }
 
   dimension: required_to_reach_quota {
+    hidden: yes
     type: number
     sql: ${TABLE}.Required_To_Reach_Quota ;;
   }
 
+  measure: total_required_to_reach_quota {
+    type: sum
+    sql: ${required_to_reach_quota} ;;
+    value_format_name: decimal_0
+  }
+
   dimension: required_to_save_deposit {
+    hidden: yes
     type: number
     sql: ${TABLE}.Required_To_Save_Deposit ;;
+  }
+
+  measure: total_required_to_save_deposit {
+    type: sum
+    sql: ${required_to_save_deposit} ;;
+    value_format_name: decimal_0
   }
 
   dimension: result {
@@ -76,7 +92,7 @@ measure: test {
     sql: ${TABLE}.Result ;;
   }
 
-  dimension: total_votes {
+  dimension: votes_in_count {
     hidden: yes
     type: number
     sql: ${TABLE}.Total_Votes ;;
@@ -100,7 +116,17 @@ measure: test {
     sql: ${TABLE}.Votes ;;
   }
 
+  measure: total_votes {
+    label: "First Preference Vote"
+    type: sum
+    sql: ${votes} ;;
+  }
 
+  measure: total_vote_in_count{
+    type: sum
+    sql: ${votes_in_count} ;;
+    value_format_name: decimal_0
+  }
 
   measure: count {
     type: count
