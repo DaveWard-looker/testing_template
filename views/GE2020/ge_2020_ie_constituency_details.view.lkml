@@ -105,9 +105,50 @@ view: ge_2020_ie_constituency_details {
     sql: ${poll} ;;
   }
 
+  measure: turnout {
+    type: number
+    sql: 1.00*(${total_poll}/nullif(${total_electorate},0)) ;;
+    value_format_name: percent_2
+  }
+
+  measure: total_seats_in_constituency {
+    type: sum
+    sql: ${seatsin_constit} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_seats_filled {
+    type: sum
+    sql: ${seats_filled} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_number_of_candidates {
+    type: sum
+    sql: ${number_of_candidates} ;;
+    value_format_name: decimal_0
+  }
+
   measure: total_valid_poll {
     type: sum
     sql: ${valid_poll} ;;
+  }
+
+  measure: total_quota {
+    type: sum
+    sql: ${quota} ;;
+    value_format_name: decimal_0
+  }
+
+  measure: total_spoiled {
+    type: sum
+    sql: ${spoiled} ;;
+  }
+
+  measure: total_required_to_save_deposit {
+    type: sum
+    sql: ${required_save_deposit};;
+    value_format_name: decimal_0
   }
 
   measure: total_count {
