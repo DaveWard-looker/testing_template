@@ -1,5 +1,5 @@
 view: ge_2020_ie_candidate_details {
-  sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Candidate_Details`;;
+  sql_table_name: `GE_2020_IE_Candidate_Details`;;
 view_label: "Candidate"
     dimension: pk_dim {
       primary_key: yes

@@ -1,5 +1,5 @@
 view: ge_2020_ie_count_details {
-  sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Count_Details`
+  sql_table_name: `GE_2020_IE_Count_Details`
     ;;
 view_label: "Count"
 

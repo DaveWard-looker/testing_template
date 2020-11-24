@@ -1,5 +1,5 @@
 view: ge_2020_ie_constituency_details {
-  sql_table_name: `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Constituency_Details`
+  sql_table_name: `GE_2020_IE_Constituency_Details`
     ;;
     view_label: "Constituency"
 
