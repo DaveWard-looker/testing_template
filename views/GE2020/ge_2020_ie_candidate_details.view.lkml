@@ -17,7 +17,7 @@ view_label: "Candidate"
     hidden: yes
     type: string
     sql: ${TABLE}.Constituency ;;
-    map_layer_name: dail
+
   }
 
   dimension: constituency_ainm {

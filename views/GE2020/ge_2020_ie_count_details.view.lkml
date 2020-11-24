@@ -18,6 +18,13 @@ measure: count_of_candidates {
     sql: ${TABLE}.Candidate_Id ;;
   }
 
+  dimension: pk_dim {
+    hidden: yes
+    primary_key: yes
+    type: string
+    sql: concat(${candidate_name},${candidate_id},${constituency_number}) ;;
+  }
+
   dimension: candidate_surname {
     hidden: yes
     type: string
@@ -126,6 +133,16 @@ measure: count_of_candidates {
     type: sum
     sql: ${votes_in_count} ;;
     value_format_name: decimal_0
+  }
+
+  measure: final_vote {
+    type: max
+    sql: ${votes_in_count} ;;
+  }
+
+  measure: candidate_saved_deposit {
+    type: yesno
+    sql: ${final_vote} > ${total_required_to_save_deposit} ;;
   }
 
   measure: count {

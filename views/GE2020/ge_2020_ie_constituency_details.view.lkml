@@ -11,10 +11,11 @@ view: ge_2020_ie_constituency_details {
   dimension: constituency_name {
     type: string
     sql: ${TABLE}.Constituency_Name ;;
-    map_layer_name: dail
+    map_layer_name: irish_dail
   }
 
   dimension: constituency_number {
+    primary_key: yes
     type: number
     sql: ${TABLE}.Constituency_Number ;;
   }
