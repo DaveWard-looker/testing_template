@@ -2,7 +2,7 @@ view: fact_dublin {
   derived_table: {
     sql: SELECT
       'Dublin' as county, SUM(Number_of_Seats) as Seats, Sum(Quota) as Quota, SUM(Total_Poll) as Total_Poll, SUM(Valid_Poll) as Valid_Poll
-      FROM `GE_2020_IE_Constituency_Details`
+      FROM `{{ _user_attributes['db_project'] }}.{{ _user_attributes['database'] }}.GE_2020_IE_Constituency_Details`
       WHERE Constituency_Name like '%Dublin%'
        ;;
       datagroup_trigger: default_data_group

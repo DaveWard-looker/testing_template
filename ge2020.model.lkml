@@ -25,7 +25,7 @@ explore: ge_2020_ie_constituency_details {
 
 datagroup: default_data_group {
   max_cache_age: "1 hour"
-  sql_trigger: SELECT max(Count_Number) FROM `daveward-ps-dev.daveward_demodataset.GE_2020_IE_Constituency_Details`  ;;
+  sql_trigger: SELECT max(Count_Number) FROM `{{ _user_attributes['db_project'] }}.{{ _user_attributes['database'] }}.GE_2020_IE_Constituency_Details`  ;;
 }
 
 explore: GE_2020_detail {
